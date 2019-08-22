@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
-
+import  './index.css';
 
 class TodoList extends React.Component{
     state = {
@@ -22,6 +22,7 @@ class TodoList extends React.Component{
                     return{
                         ...todo,
                         complete: !todo.complete,
+                        
                     };
                 }
                 else{
@@ -43,8 +44,12 @@ class TodoList extends React.Component{
     };
 
     render(){
-    return(<div>
-        <div>
+    return(<div className="container">
+        <h1>Todo List App</h1>
+        <div className="todoForm">
+            <div className = "todoLeft">
+            Todo Left = <span id="todoLeftNum">{this.state.todos.filter(todo=>!todo.complete).length}</span>
+        </div>
         <TodoForm onSubmit={this.addTodo}/>
          {this.state.todos.map(todo=>(
              <Todo key={todo.id} 
@@ -55,9 +60,7 @@ class TodoList extends React.Component{
          ))}
          </div>
 
-        <div>
-            todo left = {this.state.todos.filter(todo=>!todo.complete).length}
-        </div>
+        
      </div>
     )   
     }

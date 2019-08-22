@@ -1,5 +1,6 @@
 import React from 'react';
 import shortid from 'shortid';
+import  './index.css';
 
 class TodoForm extends React.Component{
     state = {
@@ -34,6 +35,7 @@ class TodoForm extends React.Component{
             <div>
                 <form onSubmit={this.handleSubmmit}>
                 <input 
+                    className = 'inputTab'
                     name= 'text'
                     value={this.state.text} 
                     onChange ={this.handleChange}
